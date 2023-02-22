@@ -65,36 +65,8 @@ public class PlayerMovement : MonoBehaviour
             myAnim.SetBool("grabbing", false);
         }
 
-        //if (onWall == true && Input.GetKey(KeyCode.LeftShift))
-        //{
-        //    wallGrab = true;
-        //    myAnim.SetBool("grabbing", true);
-        //}
-
-        //if (onWall == false || Input.GetKeyUp(KeyCode.LeftShift))
-        //{
-        //    myAnim.SetBool("grabbing", false);
-        //}
-
         wallSide = onRightWall ? 1 : -1;
         wallSide = onLeftWall ? 1 : 1;
-
-        if (wallGrab)
-        {
-            myBody.gravityScale = 0;
-            myBody.velocity = new Vector2(myBody.velocity.x, 0);
-            Debug.Log("Grab");
-        }
-
-        else
-        {
-            myBody.gravityScale = 5f;
-        }
-
-        if (wallGrab)
-        {
-            return;
-        }
 
         if (myBody.transform.position.x > 0)
         {
@@ -129,16 +101,6 @@ public class PlayerMovement : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, castDist);
         Debug.DrawRay(transform.position, Vector2.down, Color.red);
-
-        //if (hit.collider != null && hit.transform.name == "Ground")
-        //{
-        //    grounded = true;
-        //}
-
-        //else
-        //{
-        //    grounded = false;
-        //}
 
         myBody.velocity = new Vector3(moveSpeed, myBody.velocity.y, 0);
     }
