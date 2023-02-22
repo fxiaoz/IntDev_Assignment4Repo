@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D myBody;
     Animator myAnim;
-    Collision collision;
+    GameManager gameManager;
 
     bool grounded = false;
     public bool onWall = false;
@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     public int wallSide;
 
     bool jump = false;
-    bool wallGrab = false;
 
     public float castDist = 1f;
 
@@ -32,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
-        collision = GetComponent<Collision>();
+        gameManager = GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -128,6 +127,15 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
         {
             onWall = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Goal")
+        {
+            gameManager.goal1Reached = true;
+            Destroy(collision.gameObject);
         }
     }
 }
