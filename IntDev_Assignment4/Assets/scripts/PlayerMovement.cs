@@ -8,23 +8,31 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
 
     Rigidbody2D myBody;
+    Animator myAnim;
+    Collision collision;
 
     bool grounded = false;
-    public float castDist = 1f;
+    public bool onWall = false;
+    bool onRightWall = false;
+    bool onLeftWall = false;
 
-    public float jumpLimit = 2f;
-    public float gravityScale = 5f; //rising
-    public float gravityFall = 40f; //falling
+    public int wallSide;
 
     bool jump = false;
+    bool wallGrab = false;
 
-    //Animator myAnim;
+    public float castDist = 1f;
+
+    public float jumpLimit = 5f;
+    public float gravityScale = 1f; //rising
+    public float gravityFall = 5f; //falling
 
     // Start is called before the first frame update
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
-        //myAnim = GetComponent<Animator>();
+        myAnim = GetComponent<Animator>();
+        collision = GetComponent<Collision>();
     }
 
     // Update is called once per frame
@@ -32,20 +40,71 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalMove = Input.GetAxis("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetButtonDown("Jump") && grounded || Input.GetButtonDown("Jump") && onWall)
         {
             jump = true;
         }
 
-        //if (horizontalMove > 0.2f || horizontalMove < -0.2f)
+        if (horizontalMove > 0.2f || horizontalMove < -0.2f)
+        {
+            myAnim.SetBool("walking", true);
+        }
+
+        else
+        {
+            myAnim.SetBool("walking", false);
+        }
+
+        if (onWall)
+        {
+            myAnim.SetBool("grabbing", true);
+        }
+
+        else
+        {
+            myAnim.SetBool("grabbing", false);
+        }
+
+        //if (onWall == true && Input.GetKey(KeyCode.LeftShift))
         //{
-        //    myAnim.SetBool("walking", true);
+        //    wallGrab = true;
+        //    myAnim.SetBool("grabbing", true);
         //}
 
-        //else
+        //if (onWall == false || Input.GetKeyUp(KeyCode.LeftShift))
         //{
-        //    myAnim.SetBool("walking", false);
+        //    myAnim.SetBool("grabbing", false);
         //}
+
+        wallSide = onRightWall ? 1 : -1;
+        wallSide = onLeftWall ? 1 : 1;
+
+        if (wallGrab)
+        {
+            myBody.gravityScale = 0;
+            myBody.velocity = new Vector2(myBody.velocity.x, 0);
+            Debug.Log("Grab");
+        }
+
+        else
+        {
+            myBody.gravityScale = 5f;
+        }
+
+        if (wallGrab)
+        {
+            return;
+        }
+
+        if (myBody.transform.position.x > 0)
+        {
+            wallSide = 1;
+        }
+
+        if (myBody.transform.position.x < 0)
+        {
+            wallSide = -1;
+        }
     }
 
     void FixedUpdate()
@@ -86,14 +145,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "Ground")
+        if(collision.gameObject.tag == "Ground")
         {
             grounded = true;
+        }
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            onWall = true;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        grounded = false;
+        if (collision.gameObject.tag == "Ground")
+        {
+            grounded = false;
+        }
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            onWall = false;
+        }
     }
 }
