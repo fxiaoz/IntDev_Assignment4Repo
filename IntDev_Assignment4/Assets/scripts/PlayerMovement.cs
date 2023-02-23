@@ -132,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Goal")
+        if (collision.gameObject.tag == "Goal")
         {
             gameManager.goal1Reached = true;
             Destroy(collision.gameObject);
