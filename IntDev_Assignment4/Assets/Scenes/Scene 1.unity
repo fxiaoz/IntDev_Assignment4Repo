@@ -1115,6 +1115,7 @@ GameObject:
   - component: {fileID: 730894369}
   - component: {fileID: 730894368}
   - component: {fileID: 730894367}
+  - component: {fileID: 730894370}
   m_Layer: 0
   m_Name: leaf (2)
   m_TagString: Untagged
@@ -1205,6 +1206,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 18.014}
+--- !u!114 &730894370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730894366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847b09c0cf6a7484f9aee4f72026bfce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 1
 --- !u!1 &1283139632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,7 +1408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312346299}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.01, y: -3, z: 0}
+  m_LocalPosition: {x: -4.01, y: -3.21, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1549,6 +1563,7 @@ GameObject:
   - component: {fileID: 1355706913}
   - component: {fileID: 1355706912}
   - component: {fileID: 1355706911}
+  - component: {fileID: 1355706914}
   m_Layer: 0
   m_Name: leaf
   m_TagString: Untagged
@@ -1639,6 +1654,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 18.014}
+--- !u!114 &1355706914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355706910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847b09c0cf6a7484f9aee4f72026bfce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 1
 --- !u!1 &1436082723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,6 +1678,7 @@ GameObject:
   - component: {fileID: 1436082726}
   - component: {fileID: 1436082725}
   - component: {fileID: 1436082724}
+  - component: {fileID: 1436082727}
   m_Layer: 0
   m_Name: leaf (1)
   m_TagString: Untagged
@@ -1740,6 +1769,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 18.014}
+--- !u!114 &1436082727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436082723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847b09c0cf6a7484f9aee4f72026bfce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 1
 --- !u!1 &1492190498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,7 +1991,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.24745166}
+  m_Offset: {x: 0, y: 0.20181715}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1960,7 +2002,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.43, y: 0.58835864}
+  m_Size: {x: 10.43, y: 0.49708962}
   m_EdgeRadius: 0
 --- !u!1 &2026530619
 GameObject:
