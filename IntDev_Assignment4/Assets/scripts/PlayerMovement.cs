@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D myBody;
     Animator myAnim;
+    SpriteRenderer myRenderer;
     GameManager gameManager;
 
     bool grounded = false;
@@ -31,12 +32,22 @@ public class PlayerMovement : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
+        myRenderer = GetComponent<SpriteRenderer>();
         gameManager = GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetAxisRaw("Horizontal") > 0)
+        {
+            myRenderer.flipX = false;
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            myRenderer.flipX = true;
+        }
+
         horizontalMove = Input.GetAxis("Horizontal");
 
         if (Input.GetButtonDown("Jump") && grounded || Input.GetButtonDown("Jump") && onWall)
