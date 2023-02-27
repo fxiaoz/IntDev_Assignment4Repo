@@ -7,10 +7,10 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove;
     public float speed = 5f;
 
-    Rigidbody2D myBody;
-    Animator myAnim;
-    SpriteRenderer myRenderer;
-    GameManager gameManager;
+    public Rigidbody2D myBody;
+    public Animator myAnim;
+    public SpriteRenderer myRenderer;
+    public GameManager gameManager;
 
     bool grounded = false;
     public bool onWall = false;
@@ -141,12 +141,24 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Goal")
+        if (collision.gameObject.tag == "Leaf1")
         {
-            gameManager.goal1Reached = true;
+            gameManager.leaf1Collect = true;
             Destroy(collision.gameObject);
         }
+
+        if (collision.gameObject.tag == "Leaf2")
+        {
+            gameManager.leaf2Collect = true;
+            Destroy(collision.gameObject);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        gameManager.leaf1Collect = false;
+        gameManager.leaf2Collect = false;
     }
 }

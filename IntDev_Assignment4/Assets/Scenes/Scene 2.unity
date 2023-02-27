@@ -1215,6 +1215,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal1Reached: 0
+  goal2Reached: 0
+  myText1: {fileID: 0}
+  myText2: {fileID: 0}
+  score1: 0
+  score2: 0
+  leaf1Collect: 0
+  leaf2Collect: 0
 --- !u!4 &282697052
 Transform:
   m_ObjectHideFlags: 0
@@ -2006,7 +2013,7 @@ GameObject:
   - component: {fileID: 730894370}
   m_Layer: 0
   m_Name: leaf (2)
-  m_TagString: Untagged
+  m_TagString: Leaf2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2787,7 +2794,7 @@ GameObject:
   - component: {fileID: 1355706914}
   m_Layer: 0
   m_Name: leaf
-  m_TagString: Untagged
+  m_TagString: Leaf2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2902,7 +2909,7 @@ GameObject:
   - component: {fileID: 1367232822}
   m_Layer: 0
   m_Name: leaf (3)
-  m_TagString: Untagged
+  m_TagString: Leaf2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3017,7 +3024,7 @@ GameObject:
   - component: {fileID: 1430993909}
   m_Layer: 0
   m_Name: leaf (4)
-  m_TagString: Untagged
+  m_TagString: Leaf2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3132,7 +3139,7 @@ GameObject:
   - component: {fileID: 1432426454}
   m_Layer: 0
   m_Name: leaf (6)
-  m_TagString: Untagged
+  m_TagString: Leaf2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3247,7 +3254,7 @@ GameObject:
   - component: {fileID: 1436082727}
   m_Layer: 0
   m_Name: leaf (1)
-  m_TagString: Untagged
+  m_TagString: Leaf2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3473,7 +3480,7 @@ GameObject:
   - component: {fileID: 1564091469}
   m_Layer: 0
   m_Name: leaf (5)
-  m_TagString: Untagged
+  m_TagString: Leaf2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
