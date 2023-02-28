@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
         myBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
         myRenderer = GetComponent<SpriteRenderer>();
-        gameManager = GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -145,20 +144,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Leaf1")
         {
-            gameManager.leaf1Collect = true;
+            gameManager.score1 += 1;
             Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.tag == "Leaf2")
         {
-            gameManager.leaf2Collect = true;
+            gameManager.score2 += 1;
             Destroy(collision.gameObject);
         }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        gameManager.leaf1Collect = false;
-        gameManager.leaf2Collect = false;
     }
 }

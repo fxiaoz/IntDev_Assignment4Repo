@@ -14,31 +14,28 @@ public class GameManager : MonoBehaviour
     public int score1;
     public int score2;
 
-    public bool leaf1Collect;
-    public bool leaf2Collect;
+    //public bool leaf1Collect;
+    //public bool leaf2Collect;
+
+    public GameObject area1Score;
+    public GameObject area2Score;
+
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        myText1.text = "Area 1 Leaves: 0";
-        myText2.text = "Area 2 Leaves: 0";
+        myText1.text = "Leaves Collected: 0";
+        //myText2.text = "Area 2 Leaves: 0";
+
+        //area2Score.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        myText1.text = "Area 1 Leaves: " + score1;
-        myText2.text = "Area 2 Leaves: " + score2;
-
-        if (leaf1Collect)
-        {
-            score1 = score1 + 1;
-        }
-
-        if (leaf2Collect)
-        {
-            score2 = score2 + 1;
-        }
+        myText1.text = "Leaves Collected: " + score1;
+        myText2.text = "Leaves Collected: " + score2;
 
         if (score1 == 3)
         {
@@ -48,6 +45,8 @@ public class GameManager : MonoBehaviour
         if (goal1Reached == true)
         {
             SceneManager.LoadScene(1);
+            //area1Score.SetActive(false);
+            //area2Score.SetActive(true);
         }
 
         if (score2 == 7)
@@ -57,7 +56,17 @@ public class GameManager : MonoBehaviour
 
         if (goal2Reached == true)
         {
+            SceneManager.LoadScene(3);
+        }
+
+        if (player.transform.position.y <= -15)
+        {
             SceneManager.LoadScene(2);
         }
+    }
+
+    public void buttonClick()
+    {
+        SceneManager.LoadScene(0);
     }
 }
